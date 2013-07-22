@@ -1,0 +1,113 @@
+# Note: This is a slightly annotated version of an example
+# avg_pr.model.c0.1.e0.01.w3 file, with results similar to Table V in [1].
+#
+# Learning Human Activities and Object Affordances from RGB-D Videos,
+# Hema S Koppula, Rudhir Gupta, Ashutosh Saxena. International Journal
+# of Robotics Research (IJRR) 2013.
+
+outputfile=.//fold1/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 268926 Jul 19 21:11 .//fold1/pred/out.model.c0.1.e0.01.w3
+
+total num = 14909
+outputfile=.//fold2/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 289003 Jul 19 21:29 .//fold2/pred/out.model.c0.1.e0.01.w3
+
+total num = 15749
+outputfile=.//fold3/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 245481 Jul 19 21:59 .//fold3/pred/out.model.c0.1.e0.01.w3
+
+total num = 13009
+outputfile=.//fold4/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 267241 Jul 19 21:40 .//fold4/pred/out.model.c0.1.e0.01.w3
+
+total num = 14365
+# These numbers are a little higher because this version includes the head join in skel and skel_obj features
+Micro avg pr = 0.941144875353 stdev: 0.00630548551561432     # avg / std dev over 4 folds     91.8 
+Micro avg rc = 0.941144875353 stdev: 0.00630548551561432     # avg / std dev over 4 folds
+Macro avg pr = 0.908249858065229 stdev: 0.00786003482051571  # avg / std dev over 4 folds     90.4
+Macro avg rc = 0.819436448166479 stdev: 0.0175864854300611   # avg / std dev over 4 folds     74.2
+containable	10	24	14
+cleanable	9	12	12
+reachable	225	275	243
+drinkable	31	32	34
+placeable	173	186	184
+cleaner	9	12	12
+stationary	1704	1740	1787
+openable	41	52	46
+movable	272	281	297
+pourable	27	32	27
+closeable	28	36	31
+pourto	27	32	27
+Micro Averaged Precision Recall:
+1.00	prec: 94.18	recall: 94.18	tc: 2714             # almost same (aggregate all counts instead of mean over 4)
+
+
+---------
+
+pourable            	prec: 100.00	recall: 84.38	tc: 32
+pourto              	prec: 100.00	recall: 84.38	tc: 32
+stationary          	prec: 95.36	recall: 97.93	tc: 1740
+placeable           	prec: 94.02	recall: 93.01	tc: 186
+reachable           	prec: 92.59	recall: 81.82	tc: 275
+movable             	prec: 91.58	recall: 96.80	tc: 281
+drinkable           	prec: 91.18	recall: 96.88	tc: 32
+closeable           	prec: 90.32	recall: 77.78	tc: 36
+openable            	prec: 89.13	recall: 78.85	tc: 52
+cleanable           	prec: 75.00	recall: 75.00	tc: 12
+cleaner             	prec: 75.00	recall: 75.00	tc: 12
+containable         	prec: 71.43	recall: 41.67	tc: 24
+
+
+Macro Averaged Precision Recall:
+1.00	prec: 88.80	recall: 81.96                        # First avg over folds for a single afforance, then avg. affordances (not in table)
+outputfile=.//fold1/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 268926 Jul 19 21:11 .//fold1/pred/out.model.c0.1.e0.01.w3
+
+total num = 14909
+outputfile=.//fold2/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 289003 Jul 19 21:29 .//fold2/pred/out.model.c0.1.e0.01.w3
+
+total num = 15749
+outputfile=.//fold3/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 245481 Jul 19 21:59 .//fold3/pred/out.model.c0.1.e0.01.w3
+
+total num = 13009
+outputfile=.//fold4/pred/out.model.c0.1.e0.01.w3
+-rw-rw-r-- 1 yosinski yosinski 267241 Jul 19 21:40 .//fold4/pred/out.model.c0.1.e0.01.w3
+
+total num = 14365
+# Same stuff, but for sub-activity...
+Micro avg pr = 0.8990722226155 stdev: 0.0132131502271732         # 86.0
+Micro avg rc = 0.8990722226155 stdev: 0.0132131502271732         
+Macro avg pr = 0.880608238591225 stdev: 0.0162488597721731       # 84.2
+Macro avg rc = 0.845773072013325 stdev: 0.0186514866500208       # 76.9
+opening	44	52	49
+pouring	27	32	33
+placing	173	184	191
+null	130	152	152
+moving	330	352	357
+closing	28	36	33
+eating	24	39	35
+reaching	258	280	275
+cleaning	9	12	12
+drinking	31	32	34
+Micro Averaged Precision Recall:
+1.00	prec: 90.01	recall: 90.01	tc: 1171
+
+
+---------
+
+reaching            	prec: 93.82	recall: 92.14	tc: 280
+moving              	prec: 92.44	recall: 93.75	tc: 352
+drinking            	prec: 91.18	recall: 96.88	tc: 32
+placing             	prec: 90.58	recall: 94.02	tc: 184
+opening             	prec: 89.80	recall: 84.62	tc: 52
+null                	prec: 85.53	recall: 85.53	tc: 152
+closing             	prec: 84.85	recall: 77.78	tc: 36
+pouring             	prec: 81.82	recall: 84.38	tc: 32
+cleaning            	prec: 75.00	recall: 75.00	tc: 12
+eating              	prec: 68.57	recall: 61.54	tc: 39
+
+
+Macro Averaged Precision Recall:
+1.00	prec: 85.36	recall: 84.56
