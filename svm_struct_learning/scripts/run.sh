@@ -3,9 +3,15 @@
 set -e      # Stop on errors
 #set -x      # Print commands before they are run
 
-descrip="perfect new data c= 0.1, 4 folds, normalized features"
+descrip="perfect new data c= 0.1 (default), 4 folds, normalized features"
 #method=sum1.IP
-c=0.1
+if [ "$1" = "" ]; then
+    c=0.1
+    echo "Using default c value: $c"
+else
+    c="$1"
+    echo "Using overridden c value: $c"
+fi
 e=0.01
 w=3
 pid=(0 0 0 0)
