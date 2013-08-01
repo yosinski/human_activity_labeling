@@ -49,7 +49,7 @@ ls data_obj_feats.b.txt || ( echo "Problem running matlab, file data_obj_feats.b
 # Run Perl scripts
 perl ../scripts/format_svm_seg.pl Segmentation_labeling.txt . 1 > log_format_svm_seg.pl.log
 mkdir segments
-perl ../scripts/createSegmentsFiles.pl . "$method" > log_createSegmentsFiles.pl.log
+perl ../scripts/createSegmentsFiles.pl "`pwd`/formatted" "$method" > log_createSegmentsFiles.pl.log
 mkdir -p formatted/segments/$method
 mv segments/* formatted/segments/$method
 mkdir -p formatted/data/$method
